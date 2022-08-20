@@ -6,7 +6,7 @@ const pool = require("./db");
 
 
 //middleware
-// app.use(cors());
+app.use(cors());
 app.use(express.json()); // everytime I am going to interact with the client I am going to access the req.body for which I need express.json()
 
 // ROUTES//
