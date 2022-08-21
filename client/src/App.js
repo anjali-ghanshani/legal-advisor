@@ -11,7 +11,7 @@ function App() {
     <Fragment>
     <div className="container">
       <SetAppointment />
-      <hr/>
+      <br/>
       <ListAppointments />
     </div>
     </Fragment>

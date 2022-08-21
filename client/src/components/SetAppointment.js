@@ -36,13 +36,13 @@ function SetAppointment() {
 
   return (
     <Fragment>
-      <h1 className="text-center mt-5">Appointment List</h1>
+      <h1 className=" mt-5">Schedule Appointment</h1>
       <form className="flex mt-5" onSubmit={onSet}>
-        <label htmlFor="start">Date</label>
+        <label className="" htmlFor="start">Date</label>
         <input
           type="date"
           id="start"
-          className="form-control"
+          className="form-control mt-2 mb-2"
           value={aptDate}
           //   min={date}
           //   max="2030-12-31"
@@ -52,7 +52,7 @@ function SetAppointment() {
         <input
           id="start-time"
           type="time"
-          className="form-control"
+          className="form-control mt-2 mb-2"
         //   min="09:00:00"
         //   max="18:00:00"
           value={aptStTime}
@@ -63,7 +63,7 @@ function SetAppointment() {
         <input
           id="end-time"
           type="time"
-          className="form-control"
+          className="form-control mt-2 mb-2"
         //   min="09:00:00"
         //   max="18:00:00"
           value={aptETime}

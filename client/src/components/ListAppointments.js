@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import EditAppointment from "./EditAppointment";
 
 function ListAppointments() {
   const [avails, setAvails] = useState([]);
@@ -42,7 +43,7 @@ function ListAppointments() {
   return (
     <Fragment>
       <h1>List of Available Time Slots</h1>
-      <table className="table">
+      <table className="table ">
         <thead>
           <tr>
             <th scope="col">Avalilable Date</th>
@@ -57,7 +58,7 @@ function ListAppointments() {
               <td>{avail.app_stime}</td>
               <td>{avail.app_etime}</td>
               <td>
-                <button className="btn btn-primary">Update</button>
+              <EditAppointment availDateTime={avail}/>
               </td>
               <td>
                 <button onClick={() => deleteTimeSlots(avail.appointment_id)} className="btn btn-danger">
