@@ -13,6 +13,7 @@ import SetAppointment from "./components/SetAppointment";
 import ListAppointments from "./components/ListAppointments";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Welcome from "./components/Welcome"
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,6 +46,7 @@ function App() {
               element={
                 isAuthenticated ? (
                   <div>
+                  <Welcome />
                     <SetAppointment />
                     <ListAppointments />
                   </div>
