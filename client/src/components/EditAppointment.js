@@ -23,7 +23,7 @@ function EditAppointment({ availDateTime }) {
       console.error(err.message);
     }
   }
-  console.log(availDate);
+
   return (
     <Fragment>
       <button

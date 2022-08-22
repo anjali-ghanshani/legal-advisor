@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Register({ setAuth }) {
   const [inputs, setInputs] = useState({
@@ -29,7 +30,7 @@ function Register({ setAuth }) {
       localStorage.setItem("token", parseRes.token);
 
       setAuth(true);
-      
+
     } catch (err) {
       console.error(err.message);
     }
@@ -37,7 +38,7 @@ function Register({ setAuth }) {
 
   return (
     <div className="align-center container mt-5 ">
-      <h1 className="">Sign up</h1>
+      <h1>Sign up</h1>
       <hr />
       <form onSubmit={onSubmitForm}>
         <input
@@ -68,6 +69,7 @@ function Register({ setAuth }) {
           Submit
         </button>
       </form>
+      <Link to="/login">Login</Link>
     </div>
   );
 }
