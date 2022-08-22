@@ -10,6 +10,10 @@ app.use(express.json()); // everytime I am going to interact with the client I a
 
 // ROUTES//
 
+// register and login routes
+
+app.use("/auth", require("./routes/jwtAuth"))
+
 //create an appointment
 app.post("/appointments", async (req, res) => {
   try {

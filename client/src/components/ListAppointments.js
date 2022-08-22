@@ -38,7 +38,7 @@ function ListAppointments() {
     getAvailableTimeSlots();
   }, []);
 
-  console.log(avails);
+  // console.log(avails);
 
   return (
     <Fragment>
