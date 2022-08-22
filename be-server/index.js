@@ -12,7 +12,11 @@ app.use(express.json()); // everytime I am going to interact with the client I a
 
 // register and login routes
 
-app.use("/auth", require("./routes/jwtAuth"))
+app.use("/auth", require("./routes/jwtAuth"));
+
+// dashboard route
+
+app.use("/dashboard", require("./routes/dashboard"));
 
 //create an appointment
 app.post("/appointments", async (req, res) => {
