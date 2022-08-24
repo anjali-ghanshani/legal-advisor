@@ -8,7 +8,7 @@ function ListAppointments() {
     console.log(id);
     try {
       const deleteTS = await fetch(
-        `http://localhost:5000/appointments/${id}`,
+        `${process.env.REACT_APP_API_URL}/appointments/${id}`,
         {
           method: "DELETE"
         }
@@ -25,7 +25,7 @@ function ListAppointments() {
 
   async function getAvailableTimeSlots() {
     try {
-      const response = await fetch("http://localhost:5000/appointments");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/appointments`);
       const jsonData = await response.json();
 
       setAvails(jsonData);

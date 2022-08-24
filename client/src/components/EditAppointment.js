@@ -10,7 +10,7 @@ function EditAppointment({ availDateTime }) {
     try {
       const body = { availDate, availSTime, availETime };
       const response = await fetch(
-        `http://localhost:5000/appointments/${availDateTime.appointment_id}`,
+        `${process.env.REACT_APP_API_URL}/appointments/${availDateTime.appointment_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

@@ -25,6 +25,13 @@ function App() {
       <Router>
         <div className="container">
           <Routes>
+          <Route
+              exact
+              path="/"
+              element={
+                  <Navigate to="/login" />
+              }
+            />
             <Route
               exact
               path="/login"

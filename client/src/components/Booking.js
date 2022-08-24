@@ -8,7 +8,7 @@ function Booking() {
     try {
         const bookId = id
       const bookTS = await fetch(
-        "http://localhost:5000/bookings",
+        `${process.env.REACT_APP_API_URL}/bookings`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -27,7 +27,7 @@ function Booking() {
 
   async function getAvailableTimeSlots() {
     try {
-      const response = await fetch("http://localhost:5000/appointments");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/appointments`);
       const jsonData = await response.json();
 
       setAvails(jsonData);

@@ -16,7 +16,7 @@ function SetAppointment() {
         app_stime: aptStTime,
         app_etime: aptETime,
       };
-      const response = await fetch("http://localhost:5000/appointments", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/appointments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
