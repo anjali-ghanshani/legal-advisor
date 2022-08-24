@@ -16,7 +16,6 @@ function SetAppointment() {
         app_stime: aptStTime,
         app_etime: aptETime,
       };
-      console.log("This is try's body", body);
       const response = await fetch("http://localhost:5000/appointments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -27,18 +26,19 @@ function SetAppointment() {
     } catch (err) {
       console.error(err.message);
     }
-    window.location = "/";
+    window.location = "/appointments";
     setAptDate("");
     setAptStTime("");
     setAptETime("");
-
   }
 
   return (
     <Fragment>
       <h1 className=" mt-5">Schedule Appointment</h1>
       <form className="flex mt-5" onSubmit={onSet}>
-        <label className="" htmlFor="start">Date</label>
+        <label className="" htmlFor="start">
+          Date
+        </label>
         <input
           type="date"
           id="start"
@@ -53,8 +53,8 @@ function SetAppointment() {
           id="start-time"
           type="time"
           className="form-control mt-2 mb-2"
-        //   min="09:00:00"
-        //   max="18:00:00"
+          //   min="09:00:00"
+          //   max="18:00:00"
           value={aptStTime}
           onChange={(e) => setAptStTime(e.target.value)}
         />
@@ -64,8 +64,8 @@ function SetAppointment() {
           id="end-time"
           type="time"
           className="form-control mt-2 mb-2"
-        //   min="09:00:00"
-        //   max="18:00:00"
+          //   min="09:00:00"
+          //   max="18:00:00"
           value={aptETime}
           onChange={(e) => setAptETime(e.target.value)}
         />

@@ -1,27 +1,13 @@
-const {Pool} = require('pg');
+const { Pool } = require("pg");
 
 const connectionString =
-  "postgres://smjkbcyiwfipql:50fa36c0a350486bbe38476b252396096167ebe1f296c0148dbb73415d806d3f@ec2-44-193-178-122.compute-1.amazonaws.com:5432/d4qh07l9qr56g9";
+  "postgres://jfauvvzlbvcdli:d4e76005433f3932d942a184c98e9beb495a1e2820cc3edf3c4d491fbba5d222@ec2-44-205-64-253.compute-1.amazonaws.com:5432/ddjhr83slpu2kk";
 
 const pool = new Pool({
   connectionString,
   ssl: {
-    rejectUnauthorized: false, //  Not Authenticating
+    rejectUnauthorized: false,
   },
 });
-
-// Demo to test connection
-
-// pool.query(`SELECT * FROM appointment;`, (err, res) => {
-//     if (err) {
-//         console.log("Error - Failed to Load all appointment");
-//         console.log(err);
-//     }
-//     else{
-//         console.log(res.rows);
-//     }
-// });
-
-// pool.end();
 
 module.exports = pool;

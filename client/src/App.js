@@ -9,11 +9,10 @@ import {
 
 // components
 
-import SetAppointment from "./components/SetAppointment";
-import ListAppointments from "./components/ListAppointments";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Welcome from "./components/Welcome"
+import Welcome from "./components/Welcome";
+import Booking from "./components/Booking";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -30,35 +29,35 @@ function App() {
               exact
               path="/login"
               element={
-                !isAuthenticated ? <Login setAuth={setAuth}/> : <Navigate to="/appointments" />
+                !isAuthenticated ? (
+                  <Login setAuth={setAuth} />
+                ) : (
+                  <Navigate to="/appointments" />
+                )
               }
             />
             <Route
               exact
               path="/register"
               element={
-                !isAuthenticated ? <Register setAuth={setAuth}/> : <Navigate to="/login" />
+                !isAuthenticated ? (
+                  <Register setAuth={setAuth} />
+                ) : (
+                  <Navigate to="/login" />
+                )
               }
-            /> 
+            />
+            <Route path="/bookings" element={<Booking />} />
             <Route
               exact
               path="/appointments"
               element={
-                isAuthenticated ? (
-                  <div>
-                  <Welcome />
-                    <SetAppointment />
-                    <ListAppointments />
-                  </div>
-                ) : (
-                  <Navigate to="/register" />
-                )
+                <div>
+                  <Welcome setAuth={setAuth} />
+                </div>
               }
             />
           </Routes>
-          {/* <SetAppointment />
-          <br />
-          <ListAppointments /> */}
         </div>
       </Router>
     </Fragment>

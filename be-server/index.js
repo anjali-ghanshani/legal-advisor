@@ -6,7 +6,7 @@ const pool = require("./db");
 
 //middleware
 app.use(cors());
-app.use(express.json()); // everytime I am going to interact with the client I am going to access the req.body for which I need express.json()
+app.use(express.json());
 
 // ROUTES//
 
@@ -27,7 +27,7 @@ app.post("/appointments", async (req, res) => {
       [appdate, app_stime, app_etime]
     );
 
-    res.json(newAppointment.rows[0]);
+    // res.json(newAppointment.rows[0]);
     console.log(res.json(newAppointment.rows[0]));
   } catch (err) {
     console.error(err.message);
@@ -92,6 +92,22 @@ app.delete("/appointments/:appointment_id", async (req, res) => {
     res.json("The record was deleted");
   } catch {
     console.error(err.message);
+  }
+});
+
+// create a booking by a client
+
+app.post("/bookings", async (req, res) => {
+  try {
+    const { id } = req.body;
+    const newBooking = await pool.query(
+      "INSERT INTO booking SELECT * FROM appointment WHERE appointment_id = $1 RETURNING *",
+      [id]
+    );
+
+    res.json(newBooking.rows[0]);
+  } catch (err) {
+    console.log(err.message);
   }
 });
 

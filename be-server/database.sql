@@ -1,14 +1,3 @@
--- CREATE DATABASE legal_advisor; 
--- Not required as We hired heroku to provide the db
-
-CREATE TABLE client(
-    client_id SERIAL PRIMARY KEY
-
-);
-
-CREATE TABLE advisor(
-    advisor_id SERIAL PRIMARY KEY
-);
 
 CREATE TABLE appointment(
     appointment_id SERIAL PRIMARY KEY,
@@ -38,3 +27,16 @@ CREATE TABLE users(
 -- insert a fake user
 
 INSERT INTO users (user_name,user_email,user_password) VALUES ('John Doe','john.doe@gmail.com','kht234');
+
+
+-- 
+
+CREATE TABLE booking(
+    booking_id SERIAL PRIMARY KEY,
+    bkdate DATE NOT NULL,
+    stime TIME NOT NULL,
+    etime TIME NOT NULL
+);
+
+-- insert sample record
+INSERT INTO booking (bkdate, stime, etime) VALUES('2022-08-12','08:45:00','09:15:00');

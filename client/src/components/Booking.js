@@ -1,22 +1,24 @@
 import React, { Fragment, useEffect, useState } from "react";
-import EditAppointment from "./EditAppointment";
 
-function ListAppointments() {
+function Booking() {
   const [avails, setAvails] = useState([]);
 
-  async function deleteTimeSlots(id) {
+  async function bookTimeSlots(id) {
     console.log(id);
     try {
-      const deleteTS = await fetch(
-        `http://localhost:5000/appointments/${id}`,
+        const bookId = id
+      const bookTS = await fetch(
+        "http://localhost:5000/bookings",
         {
-          method: "DELETE"
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(bookId),
         }
       );
 
       setAvails(avails.filter(avail => avail.appointment_id !== id));
 
-      console.log(deleteTS);
+      console.log(bookTS);
       
     } catch (error) {
       console.error(error.message);
@@ -38,7 +40,6 @@ function ListAppointments() {
     getAvailableTimeSlots();
   }, []);
 
-  // console.log(avails);
 
   return (
     <Fragment>
@@ -58,11 +59,8 @@ function ListAppointments() {
               <td>{avail.app_stime}</td>
               <td>{avail.app_etime}</td>
               <td>
-              <EditAppointment availDateTime={avail}/>
-              </td>
-              <td>
-                <button onClick={() => deleteTimeSlots(avail.appointment_id)} className="btn btn-danger">
-                  Delete
+                <button onClick={() => bookTimeSlots(avail.appointment_id)} className="btn btn-primary">
+                  Select
                 </button>
               </td>
             </tr>
@@ -73,4 +71,4 @@ function ListAppointments() {
   );
 }
 
-export default ListAppointments;
+export default Booking;
