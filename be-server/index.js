@@ -10,6 +10,16 @@ app.use(express.json());
 
 // ROUTES//
 
+// Service status route
+app.get("/", async (req, res) => {
+  try {
+    res.json({message: "API service up and running"});
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
 // register and login routes
 
 app.use("/auth", require("./routes/jwtAuth"));
